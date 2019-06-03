@@ -52,18 +52,35 @@ void login(){
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            CircleAvatar(
-              backgroundImage: CachedNetworkImageProvider('https://www.mahindratractor.com/images/Album/Albumthumb/mahindra_275_eco_album.jpg'),
-              maxRadius: 60.0,
-            ),
-            Container(
-              padding: EdgeInsets.only(left:35,right:35,top:15),
-              child: Text(
-                "Welcome to Elgi Equipments Ltd.We offer over 400 compressed air systemsfor mission critical applications worldwide.",
-                textAlign: TextAlign.justify,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(fontSize: 14.0),
-                maxLines: 10,),
+            Padding(
+              padding: const EdgeInsets.only(left:30.0,right: 30),
+              child: Container(
+
+                decoration: BoxDecoration(
+                    color: Colors.red,
+                  borderRadius: BorderRadius.circular(15),
+
+                ),
+                padding: EdgeInsets.only(top: 15,bottom: 15),
+
+                 child:Column(
+                  children: <Widget>[
+                    CircleAvatar(
+                      backgroundImage: CachedNetworkImageProvider('https://www.mahindratractor.com/images/Album/Albumthumb/mahindra_275_eco_album.jpg'),
+                      maxRadius: 60.0,
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(left:20,right:20,top:15),
+                      child: Text(
+                        "Welcome to Elgi Equipments Ltd.We offer over 400 compressed air systemsfor mission critical applications worldwide.",
+                        textAlign: TextAlign.justify,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(fontSize: 17.0,fontWeight: FontWeight.w400,color: Colors.white),
+                        maxLines: 10,),
+                    )
+                  ],
+                ),
+              ),
             ),
             SizedBox(height: 30,),
             Column(
@@ -105,14 +122,22 @@ void login(){
               ],
 
             ),
-            RaisedButton(
-              onPressed: login,
-              textColor: Colors.white,
-              color: Colors.blue,
-              padding: const EdgeInsets.all(8.0),
-              child: new Text(
-                "LOGIN",
-                style: TextStyle(letterSpacing: 2,fontSize: 18),
+            SizedBox(
+              height: 50,
+              width: 180,
+
+              child: RaisedButton(
+                onPressed: login,
+                textColor: Colors.white,
+                color: Colors.blue,
+                elevation: 10,
+                shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(25.0)),
+
+                padding: const EdgeInsets.all(8.0),
+                child: new Text(
+                  "LOGIN",
+                  style: TextStyle(letterSpacing: 2,fontSize: 18),
+                ),
               ),
             ),
            //
@@ -129,14 +154,21 @@ void login(){
 
             SizedBox(height: 10,),
 
-        RaisedButton(
-          onPressed: login,
-          textColor: Colors.white,
-          color: Colors.redAccent,
-          padding: const EdgeInsets.all(8.0),
-          child: new Text(
-            "SIGNUP",
-            style: TextStyle(letterSpacing: 2,fontSize: 18),
+        SizedBox(
+          height: 50,
+          width: 180,
+          child: RaisedButton(
+            onPressed: login,
+            textColor: Colors.white,
+            color: Colors.red,
+            elevation: 10,
+
+              shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(25.0)),
+              padding: const EdgeInsets.all(8.0),
+            child: new Text(
+              "SIGNUP",
+              style: TextStyle(letterSpacing: 2,fontSize: 18),
+            ),
           ),
         ),
           ],
