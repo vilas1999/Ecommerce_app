@@ -1,17 +1,43 @@
-import 'main.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'state.dart';
+import 'main.dart';
+import 'signup.dart';
 
 
-class SecondScreen extends StatelessWidget {
-  void login(){}
+class MyApp1 extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'ELGI',
+      theme: ThemeData(fontFamily: "Montserrat",
+        primarySwatch: Colors.red,
+      ),
+      home: MyHomePage1(title: 'ELGI'),
+    );
+  }
+}
+
+class MyHomePage1 extends StatefulWidget {
+  MyHomePage1({Key key, this.title}) : super(key: key);
+
+
+  final String title;
+
+  @override
+  _MyHomePageState1 createState() => _MyHomePageState1();
+}
+
+class _MyHomePageState1 extends State<MyHomePage1> {
+  void login(){
+
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Second Screen'),
-      ),
+
       body: Center(
         child: Column(
 
@@ -35,6 +61,7 @@ class SecondScreen extends StatelessWidget {
                       backgroundImage: CachedNetworkImageProvider('https://www.mahindratractor.com/images/Album/Albumthumb/mahindra_275_eco_album.jpg'),
                       maxRadius: 60.0,
                     ),
+
                     Container(
                       padding: EdgeInsets.only(left:20,right:20,top:15),
                       child: Text(
@@ -56,7 +83,7 @@ class SecondScreen extends StatelessWidget {
 
               child: RaisedButton(
                 onPressed:  login,
-                  textColor: Colors.white,
+                textColor: Colors.white,
                 color: Colors.blue,
                 elevation: 10,
                 shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(25.0)),
@@ -72,7 +99,7 @@ class SecondScreen extends StatelessWidget {
 
 
 
-            SizedBox(height: 10,),
+            SizedBox(height: 25,),
 
             SizedBox(
               height: 50,
@@ -100,3 +127,4 @@ class SecondScreen extends StatelessWidget {
     );
   }
 }
+

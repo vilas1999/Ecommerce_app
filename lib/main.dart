@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'check.dart';
+import 'choose.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'state.dart';
+import 'signup.dart';
 
-
-void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -24,13 +25,13 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.red,
       ),
       home: MyHomePage(title: 'ELGI'),
+
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
-
 
   final String title;
 
@@ -39,6 +40,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  String state="";
 
 final _formKey = GlobalKey<FormState>();
 final number=TextEditingController();
@@ -159,7 +161,8 @@ String vaildatepass1(String value){
 
                       builder: (context) {
                         if( password.text=='1' && number.text=='1') {
-                            return SecondScreen();
+                           // changeState();
+                            return MyApp1();
                         }
                         else{
                           return AlertDialog(
@@ -202,7 +205,12 @@ String vaildatepass1(String value){
             height: 50,
             width: 180,
             child: RaisedButton(
-              onPressed:login,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Register()),
+                );
+              },
               textColor: Colors.white,
               color: Colors.red,
               elevation: 10,
@@ -224,5 +232,7 @@ String vaildatepass1(String value){
       ),
     );
   }
+
+
 }
 
