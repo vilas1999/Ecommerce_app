@@ -1,39 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'state.dart';
-import 'main.dart';
-import 'signup.dart';
+import 'existing.dart';
 
 
-class MyApp1 extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'ELGI',
-      theme: ThemeData(fontFamily: "Montserrat",
-        primarySwatch: Colors.red,
-      ),
-      home: MyHomePage1(title: 'ELGI'),
-    );
-  }
-}
-
-class MyHomePage1 extends StatefulWidget {
-  MyHomePage1({Key key, this.title}) : super(key: key);
+class Choose extends StatefulWidget {
 
 
-  final String title;
 
   @override
-  _MyHomePageState1 createState() => _MyHomePageState1();
+  _ChooseState createState() => _ChooseState();
 }
 
-class _MyHomePageState1 extends State<MyHomePage1> {
+class _ChooseState extends State<Choose> {
   void login(){
 
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -105,7 +86,12 @@ class _MyHomePageState1 extends State<MyHomePage1> {
               height: 50,
               width: 350,
               child: RaisedButton(
-                onPressed:login,
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Existing()),
+                  );
+                },
                 textColor: Colors.white,
                 color: Colors.red,
                 elevation: 10,

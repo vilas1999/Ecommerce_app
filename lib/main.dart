@@ -162,9 +162,12 @@ String vaildatepass1(String value){
                       builder: (context) {
                         if( password.text=='1' && number.text=='1') {
                            // changeState();
-                            return MyApp1();
+
+                            return Choose();
+                          //  dispose();
                         }
                         else{
+
                           return AlertDialog(
                             // Retrieve the text the user has typed in using our
                             // TextEditingController

@@ -9,7 +9,7 @@ void main() {
   if(a==1)
     runApp(MyApp());
   else if(a==2)
-    runApp(MyApp1());
+    runApp(Choose());
   else
     Register();
 }
