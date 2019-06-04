@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'check.dart';
+
 
 void main() => runApp(MyApp());
 
@@ -9,7 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'ELGI',
-      theme: ThemeData(
+      theme: ThemeData(fontFamily: "Montserrat",
         // This is the theme of your application.
         //
         // Try running your application with "flutter run". You'll see the
@@ -37,10 +39,26 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+final _formKey = GlobalKey<FormState>();
+final number=TextEditingController();
+final password=TextEditingController();
 void login(){
 
 }
+void dispose(){
+  number.dispose();
+  super.dispose();
+  password.dispose();
+  super.dispose();
+}
 
+String vaildatepass1(String value){
+  if(value.isEmpty){
+    return 'Enter Phone Number';
+  }
+
+}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,133 +66,163 @@ void login(){
         centerTitle: true,
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(left:30.0,right: 30),
-              child: Container(
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
 
-                decoration: BoxDecoration(
-                    color: Colors.red,
-                  borderRadius: BorderRadius.circular(15),
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              SizedBox(height: 30,),
+              Padding(
+                padding: const EdgeInsets.only(left:20.0,right: 20),
+                child: Container(
 
-                ),
-                padding: EdgeInsets.only(top: 15,bottom: 15),
+                  decoration: BoxDecoration(
+                      color: Colors.red,
+                    borderRadius: BorderRadius.circular(15),
 
-                 child:Column(
-                  children: <Widget>[
-                    CircleAvatar(
-                      backgroundImage: CachedNetworkImageProvider('https://www.mahindratractor.com/images/Album/Albumthumb/mahindra_275_eco_album.jpg'),
-                      maxRadius: 60.0,
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(left:20,right:20,top:15),
-                      child: Text(
-                        "Welcome to Elgi Equipments Ltd.We offer over 400 compressed air systemsfor mission critical applications worldwide.",
-                        textAlign: TextAlign.justify,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(fontSize: 17.0,fontWeight: FontWeight.w400,color: Colors.white),
-                        maxLines: 10,),
-                    )
-                  ],
-                ),
-              ),
-            ),
-            SizedBox(height: 30,),
-            Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Text('MOBILE NUMBER',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w500),),
-      SizedBox(height: 10,),
-      Padding(
-        padding: const EdgeInsets.only(left:20.0,right: 20),
-        child: TextField(
-          obscureText: false,
-          //style: style,
-          decoration: InputDecoration(
+                  ),
+                  padding: EdgeInsets.only(top: 15,bottom: 15),
 
-              contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-              hintText: "Mobile Number",
-              border:
-              OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
-        ),
-      ),
-                SizedBox(height: 15,),
-                Text('PASSWORD',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w500),),
-                SizedBox(height: 10,),
-                Padding(
-                  padding: const EdgeInsets.only(left:20.0,right: 20),
-                  child: TextField(
-                    obscureText: true ,
-                    //style: style,
-                    decoration: InputDecoration(
-
-                        contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                        hintText: "Password",
-                        border:
-                        OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
+                   child:Column(
+                    children: <Widget>[
+                      CircleAvatar(
+                        backgroundImage: CachedNetworkImageProvider('https://www.mahindratractor.com/images/Album/Albumthumb/mahindra_275_eco_album.jpg'),
+                        maxRadius: 60.0,
+                      ),
+                      Container(
+                        padding: EdgeInsets.only(left:20,right:20,top:15),
+                        child: Text(
+                          "Welcome to Elgi Equipments Ltd.We offer over 400 compressed air systemsfor mission critical applications worldwide.",
+                          textAlign: TextAlign.justify,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(fontSize: 17.0,fontWeight: FontWeight.w400,color: Colors.white,fontFamily: 'Montserrat'),
+                          maxLines: 10,),
+                      )
+                    ],
                   ),
                 ),
-                SizedBox(height: 20,),
-
-              ],
-
-            ),
-            SizedBox(
-              height: 50,
-              width: 180,
-
-              child: RaisedButton(
-                onPressed: login,
-                textColor: Colors.white,
-                color: Colors.blue,
-                elevation: 10,
-                shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(25.0)),
-
-                padding: const EdgeInsets.all(8.0),
-                child: new Text(
-                  "LOGIN",
-                  style: TextStyle(letterSpacing: 2,fontSize: 18),
-                ),
               ),
-            ),
-           //
-            Container(
-              padding: EdgeInsets.only(left:35,right:35,top:10),
-              child: Text(
-                "New Customer?Join us",
-                textAlign: TextAlign.justify,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(fontSize: 18.0),
-                maxLines: 10,),
-            ),
+              SizedBox(height: 30,),
+              Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Text('MOBILE NUMBER',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w500,fontFamily: "Montserrat"),),
+        SizedBox(height: 10,),
+        Padding(
+          padding: const EdgeInsets.only(left:20.0,right: 20),
+          child: TextFormField(
+            controller: number,
 
+            obscureText: false,
+            //style: style,
+            decoration: InputDecoration(
 
-            SizedBox(height: 10,),
-
-        SizedBox(
-          height: 50,
-          width: 180,
-          child: RaisedButton(
-            onPressed: login,
-            textColor: Colors.white,
-            color: Colors.red,
-            elevation: 10,
-
-              shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(25.0)),
-              padding: const EdgeInsets.all(8.0),
-            child: new Text(
-              "SIGNUP",
-              style: TextStyle(letterSpacing: 2,fontSize: 18),
-            ),
+                contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                hintText: "Mobile Number",
+                border:
+                OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
+            validator: vaildatepass1,
           ),
         ),
-          ],
+                  SizedBox(height: 15,),
+                  Text('PASSWORD',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w500),),
+                  SizedBox(height: 10,),
+                  Padding(
+                    padding: const EdgeInsets.only(left:20.0,right: 20),
+                    child: TextField(
+                      controller: password,
+                      obscureText: true ,
+                      //style: style,
+                      decoration: InputDecoration(
 
+                          contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                          hintText: "Password",
+                          border:
+
+                          OutlineInputBorder(borderRadius: BorderRadius.circular(32.0),borderSide:  BorderSide(),)),
+                    ),
+                  ),
+                  SizedBox(height: 20,),
+
+                ],
+
+              ),
+              SizedBox(
+                height: 50,
+                width: 180,
+
+                child: RaisedButton(
+                  onPressed:  () {
+                    return showDialog(
+                      context: context,
+
+                      builder: (context) {
+                        if( password.text=='1' && number.text=='1') {
+                            return SecondScreen();
+                        }
+                        else{
+                          return AlertDialog(
+                            // Retrieve the text the user has typed in using our
+                            // TextEditingController
+                            content: Text('wrong'),
+                          );
+                        }
+
+                      },
+                    );
+                  },
+                  textColor: Colors.white,
+                  color: Colors.blue,
+                  elevation: 10,
+                  shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(25.0)),
+
+                  padding: const EdgeInsets.all(8.0),
+                  child: new Text(
+                    "LOGIN",
+                    style: TextStyle(letterSpacing: 2,fontSize: 18),
+                  ),
+                ),
+              ),
+             //
+              Container(
+                padding: EdgeInsets.only(left:35,right:35,top:10),
+                child: Text(
+                  "New Customer?Join us",
+                  textAlign: TextAlign.justify,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(fontSize: 18.0),
+                  maxLines: 10,),
+              ),
+
+
+              SizedBox(height: 10,),
+
+          SizedBox(
+            height: 50,
+            width: 180,
+            child: RaisedButton(
+              onPressed:login,
+              textColor: Colors.white,
+              color: Colors.red,
+              elevation: 10,
+
+                shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(25.0)),
+                padding: const EdgeInsets.all(8.0),
+              child: new Text(
+                "SIGNUP",
+                style: TextStyle(letterSpacing: 2,fontSize: 18),
+              ),
+            ),
+          ),
+              SizedBox(height: 30,),
+
+            ],
+
+          ),
         ),
       ),
     );
   }
 }
+
