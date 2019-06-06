@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'state.dart';
 
 class Register extends StatefulWidget {
 
@@ -66,6 +67,7 @@ class _RegisterState extends State<Register> {
         body: Form(
           key: _formKey,
           child: SingleChildScrollView(
+            physics: BouncingScrollPhysics(),
             child: Column(
               children: <Widget>[
                 Column(
@@ -250,6 +252,8 @@ class _RegisterState extends State<Register> {
                           onPressed: () {
                             if (_formKey.currentState.validate()) {
                               // If the form is valid, we want to show a Snackbar
+                              Navigator.of(context).pop();
+                              main();
                             }
                           },
 
@@ -274,7 +278,10 @@ class _RegisterState extends State<Register> {
                       },
                     ),
                     RaisedButton(
-                      onPressed: cancel,
+                      onPressed: (){
+                        Navigator.of(context).pop();
+                        main();
+                      },
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(50.0)),
                       elevation: 4.0,
@@ -300,64 +307,7 @@ class _RegisterState extends State<Register> {
     );
   }
 
-  void _showSuccessDialog() {
-    showDialog(
-        barrierDismissible: false,
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
 
-            title:  Text("Registered"),
-            content:  Text("Registered Successfully"),
-            actions: <Widget>[
-              // usually buttons at the bottom of the dialog
-              FlatButton(
-                child:  Text("Done"),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                  Navigator.of(context).pop();
-                },
-              ),
-            ],
-          );
-        });
-  }
 
-  void _showUpdatingDialog() {
-    showDialog(
-        barrierDismissible: false,
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title:  Text("Registering"),
-            content:  Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                CircularProgressIndicator(),
-              ],
-            ),
-          );
-        });
-  }
 
-  void _showErrorDialog() {
-    showDialog(
-        barrierDismissible: false,
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title:  Text("Error"),
-            content:  Text("Unable To Register"),
-            actions: <Widget>[
-              // usually buttons at the bottom of the dialog
-              FlatButton(
-                child:  Text("Close"),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-            ],
-          );
-        });
-  }
 }

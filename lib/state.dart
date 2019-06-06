@@ -1,7 +1,7 @@
 import 'main.dart';
 import 'package:flutter/material.dart';
 import 'choose.dart';
-import 'home.dart';
+import 'sidebar.dart';
 
 void main() {
 
@@ -11,5 +11,7 @@ void main() {
   else if(a==2)
     Choose();
   else if(a==3)
-    runApp(Home());
+    runApp(SideBar());
+  else
+    runApp(MyApp());
 }

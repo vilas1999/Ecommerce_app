@@ -69,6 +69,7 @@ String vaildatepass1(String value){
         title: Text(widget.title),
       ),
       body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         child: Center(
           child: Column(
 
@@ -115,7 +116,7 @@ String vaildatepass1(String value){
           padding: const EdgeInsets.only(left:20.0,right: 20),
           child: TextFormField(
             controller: number,
-
+            keyboardType: TextInputType.number,
             obscureText: false,
             //style: style,
             decoration: InputDecoration(

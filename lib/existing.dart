@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'home.dart';
+import 'sidebar.dart';
+
 
 class Existing extends StatefulWidget {
 
@@ -144,7 +145,7 @@ class _ExistingState extends State<Existing> {
                               // If the form is valid, we want to show a Snackbar
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => Home()),
+                                MaterialPageRoute(builder: (context) => SideBar()),
                               );
                             }
                           },
