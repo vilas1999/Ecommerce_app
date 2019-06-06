@@ -1,15 +1,15 @@
 import 'main.dart';
 import 'package:flutter/material.dart';
 import 'choose.dart';
-import 'signup.dart';
+import 'home.dart';
 
 void main() {
 
-    int a=1;
+    int a=3;
   if(a==1)
     runApp(MyApp());
   else if(a==2)
-    runApp(Choose());
-  else
-    Register();
+    Choose();
+  else if(a==3)
+    runApp(Home());
 }

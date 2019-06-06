@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'home.dart';
 
 class Existing extends StatefulWidget {
 
@@ -120,7 +121,7 @@ class _ExistingState extends State<Existing> {
                             )),
                         validator: (value) {
                           if (value.isEmpty) {
-                            return 'Enter the password name';
+                            return 'Enter the model number';
                           }
                         },
                       ),
@@ -141,6 +142,10 @@ class _ExistingState extends State<Existing> {
                           onPressed: () {
                             if (_formKey.currentState.validate()) {
                               // If the form is valid, we want to show a Snackbar
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => Home()),
+                              );
                             }
                           },
 
