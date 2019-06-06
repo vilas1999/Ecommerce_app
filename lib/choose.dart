@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'existing.dart';
+import 'home.dart';
 
 
 class Choose extends StatefulWidget {
@@ -63,7 +64,9 @@ class _ChooseState extends State<Choose> {
               width: 350,
 
               child: RaisedButton(
-                onPressed:  login,
+                onPressed:  (){
+                  runApp(Home());
+                },
                 textColor: Colors.white,
                 color: Colors.blue,
                 elevation: 10,

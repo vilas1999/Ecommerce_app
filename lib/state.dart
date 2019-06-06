@@ -5,7 +5,7 @@ import 'home.dart';
 
 void main() {
 
-    int a=3;
+    int a=1;
   if(a==1)
     runApp(MyApp());
   else if(a==2)
