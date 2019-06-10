@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'cart.dart';
 import 'main.dart';
 import 'home/spares.dart';
 import 'home/home.dart';
@@ -58,7 +59,7 @@ class SideBarPage extends StatefulWidget {
 
 class _SideBarPageState extends State<SideBarPage> {
 
-  int _selectedDrawerIndex = 2;
+  int _selectedDrawerIndex = 1;
   _getDrawerItemWidget(int pos) {
     switch (pos) {
       case 0:
@@ -112,6 +113,7 @@ class _SideBarPageState extends State<SideBarPage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
+        bottomOpacity: 0.5,
         title:Row(
           children: <Widget>[Text('ELGI'),
             SizedBox(width:20),
@@ -119,7 +121,14 @@ class _SideBarPageState extends State<SideBarPage> {
               padding: const EdgeInsets.all(8.0),
               child: CachedNetworkImage(imageUrl: 'https://www.thephotoargus.com/wp-content/uploads/2018/10/prettyflowers18.jpg',fit: BoxFit.contain,),
             )],
-        )
+        ),
+        actions: <Widget>[
+          IconButton(icon: Icon(Icons.shopping_cart,size: 30,), onPressed:(){
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context)=>Cart()));
+          } ),
+          SizedBox(width: 20,)
+        ],
       ),
       drawer: SizedBox(
         width: 250,
