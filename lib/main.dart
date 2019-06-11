@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'choose.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'state.dart';
 import 'signup.dart';
 
 
@@ -90,7 +87,9 @@ String vaildatepass1(String value){
                    child:Column(
                     children: <Widget>[
                       CircleAvatar(
-                        backgroundImage: CachedNetworkImageProvider('https://www.mahindratractor.com/images/Album/Albumthumb/mahindra_275_eco_album.jpg'),
+                        backgroundColor: Colors.brown,
+                        child: Text('LOGO',style: TextStyle(color: Colors.white),),
+                        //backgroundImage: CachedNetworkImageProvider('https://www.mahindratractor.com/images/Album/Albumthumb/mahindra_275_eco_album.jpg'),
                         maxRadius: 60.0,
                       ),
                       Container(
@@ -172,7 +171,7 @@ String vaildatepass1(String value){
                           return AlertDialog(
                             // Retrieve the text the user has typed in using our
                             // TextEditingController
-                            content: Text('wrong'),
+                            content: Text('Invalid Username and Password'),
                           );
                         }
 

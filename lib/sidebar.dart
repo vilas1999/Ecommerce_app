@@ -5,11 +5,10 @@ import 'main.dart';
 import 'home/spares.dart';
 import 'home/home.dart';
 import 'home/products.dart';
-import 'home/spares.dart';
 import 'home/services.dart';
 import 'home/dealers.dart';
-import 'home/dealers.dart';
 import 'home/contact.dart';
+import 'home/orders.dart';
 
 class SideBar extends StatelessWidget {
   // This widget is the root of your application.
@@ -51,6 +50,7 @@ class SideBarPage extends StatefulWidget {
     new DrawerItem("Spare Parts"),
     new DrawerItem("Services"),
     new DrawerItem("Dealers"),
+    new DrawerItem("Orders"),
     new DrawerItem("Contact Us"),
 
   ];
@@ -59,7 +59,7 @@ class SideBarPage extends StatefulWidget {
 
 class _SideBarPageState extends State<SideBarPage> {
 
-  int _selectedDrawerIndex = 1;
+  int _selectedDrawerIndex = 0;
   _getDrawerItemWidget(int pos) {
     switch (pos) {
       case 0:
@@ -72,8 +72,10 @@ class _SideBarPageState extends State<SideBarPage> {
         return new Services();
       case 4:
         return new Dealer();
-      case 5:
+      case 6:
         return new Contact();
+      case 5:
+        return new Orders();
 
       default:
         return new Text("Error");

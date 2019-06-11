@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
+
 class Home extends StatefulWidget {
 
   int _radioValue1=0;
@@ -91,10 +92,10 @@ var username='Vilas';
                     CircleAvatar(
                       maxRadius: 25,
                       backgroundColor: Colors.red,
-                      backgroundImage:CachedNetworkImageProvider('https://www.thephotoargus.com/wp-content/uploads/2018/10/prettyflowers18.jpg'),
+                     child: Text('V',style: TextStyle(fontSize: 25,color: Colors.white),),
                     ),
                     SizedBox(width: 10,),
-                    Text('Welcome Back  \n'+username,textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.w600),),
+                    Text('Welcome Back  \n'+username.toUpperCase(),textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.w600),),
                   ],
                 ),
               ),

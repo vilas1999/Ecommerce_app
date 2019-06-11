@@ -31,7 +31,7 @@ class _FilterState extends State<Filter> {
           children: <Widget>[
             Column(
               children: <Widget>[
-                Text('Compressor',style: TextStyle(fontWeight: FontWeight.w600),),
+                Text('Compressor',style: TextStyle(fontWeight: FontWeight.w500,fontSize: 18),),
                 DropdownButton<String>(
                   value: dropdownValue1,
                   onChanged: (String newValue1) {
@@ -52,7 +52,7 @@ class _FilterState extends State<Filter> {
             ),
             Column(
               children: <Widget>[
-                Text('Spare Parts',style: TextStyle(fontWeight: FontWeight.w600),),
+                Text('Spare Parts',style: TextStyle(fontWeight: FontWeight.w500,fontSize: 18),),
                 DropdownButton<String>(
                   value: dropdownValue,
                   onChanged: (String newValue) {
@@ -81,7 +81,7 @@ class _FilterState extends State<Filter> {
               children: <Widget>[
                 Column(
                   children: <Widget>[
-                    Text('Price',style: TextStyle(fontWeight: FontWeight.w600),),
+                    Text('Price',style: TextStyle(fontWeight: FontWeight.w500,fontSize: 18),),
                     DropdownButton<String>(
                       value: dropdownValue2,
                       onChanged: (String newValue2) {
@@ -102,7 +102,7 @@ class _FilterState extends State<Filter> {
                 ),
                 Column(
                   children: <Widget>[
-                    Text('Services',style: TextStyle(fontWeight: FontWeight.w600),),
+                    Text('Services',style: TextStyle(fontWeight: FontWeight.w500,fontSize: 18),),
                     DropdownButton<String>(
                       value: dropdownValue3,
                       onChanged: (String newValue3) {
@@ -127,18 +127,19 @@ class _FilterState extends State<Filter> {
              height: 20,
            ),
            Row(
+
              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
              children: <Widget>[
                RaisedButton(onPressed: (){
                  Navigator.of(context).pop();
                },
                  color: Colors.red,
-                 child: Text('Apply'),
+                 child: Text('Apply',style: TextStyle(color: Colors.white,fontWeight: FontWeight.w600),),
                ),
                RaisedButton(onPressed: (){
                  Navigator.of(context).pop();
                },
-                 child: Text('Cancel'),
+                 child: Text('Cancel',style: TextStyle(fontWeight: FontWeight.w600),),
                )
              ],
            )

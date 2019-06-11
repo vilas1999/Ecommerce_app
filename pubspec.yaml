@@ -27,6 +27,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   shared_preferences: ^0.5.3+1
   video_player:
+  smooth_star_rating: 1.0.3
 
 dev_dependencies:
   flutter_test:
@@ -56,6 +57,9 @@ flutter:
     - family: MontserratBold
       fonts:
         - asset: assets/fonts/Montserrat-Bold.ttf
+    - family:  MyFlutterApp
+      fonts:
+        - asset: assets/fonts/MyFlutterApp.ttf
 
 
   # To add assets to your application, add an assets section, like this:

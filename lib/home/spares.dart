@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:video_player/video_player.dart';
+import 'filters.dart';
 class Spares extends StatefulWidget {
 
 
@@ -45,27 +46,47 @@ class _SparesState extends State<Spares> {
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
+            SizedBox(height: 10,),
             Padding(
-              padding: const EdgeInsets.only(left: 10,right: 10,top: 10),
+              padding: const EdgeInsets.only(left: 10, right: 10, top: 20),
               child: Row(
-
-                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
                   Container(
-                    height: 40,
-                    width: 200,
+                    height: 35,
+                    width: 170,
                     child: TextFormField(
                       keyboardType: TextInputType.text,
                       obscureText: false,
                       //style: style,
                       decoration: InputDecoration(
                           hintText: 'Search Spares',
-                          contentPadding: EdgeInsets.fromLTRB(15.0, 5.0, 0.0, 5.0),
+                          contentPadding: EdgeInsets.fromLTRB(
+                              15.0, 5.0, 0.0, 5.0),
                           border:
-                          OutlineInputBorder(borderRadius: BorderRadius.circular(5.0))),
+                          OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15.0))),
                     ),
                   ),
-                  Text('Filter')
+                  Container(
+                    height: 35,
+                    width: 100,
+                    child: RaisedButton(
+                      onPressed:  () {
+                        Navigator.push(context,MaterialPageRoute(builder: (context)=>Filter()));
+                      },
+                      color: Colors.white30,
+                      textColor: Colors.black,
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: <Widget>[
+                          Text('Filters'),
+                          Icon(Icons.filter_list)
+                        ],
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),
@@ -160,8 +181,11 @@ class _SparesState extends State<Spares> {
                       Column(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: <Widget>[
-                          Text('SimpleAir Piping',style: TextStyle(fontWeight: FontWeight.w600),),
-                          Text('Price:20000',),
+                          Padding(
+                            padding: const EdgeInsets.only(bottom:10.0),
+                            child: Text('SimpleAir Piping',style: TextStyle(fontWeight: FontWeight.w600,fontSize: 18),),
+                          ),
+                          Text('Price:'+"\u20B9" +'20000',style: TextStyle(fontSize: 16),),
                           Container(
 
                             padding: EdgeInsets.only(top:7,left: 7),

@@ -33,6 +33,7 @@ class _ProductState extends State<Product> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       body: SingleChildScrollView(
        //  scrollDirection: Axis.horizontal,
         child: Column(
@@ -57,7 +58,7 @@ class _ProductState extends State<Product> {
                               15.0, 5.0, 0.0, 5.0),
                           border:
                           OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5.0))),
+                              borderRadius: BorderRadius.circular(15.0))),
                     ),
                   ),
                   Container(
@@ -87,14 +88,20 @@ class _ProductState extends State<Product> {
                 elevation: 10,
                 child: Padding(
                   padding: const EdgeInsets.only(left: 8.0, right: 8),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  child: Column(
                     children: <Widget>[
-                      //SizedBox(width: 10,),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      SizedBox(
+                    height: 10,
+                  ),
+                      Center(
+                        child: Text('Compressor'.toUpperCase(),
+                          style: TextStyle(fontWeight: FontWeight.w600,fontSize: 18),),
 
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
+                          //SizedBox(width: 10,),
                           SizedBox(
                             child: CachedNetworkImage(
                               imageUrl: 'https://images.financialexpress.com/2017/10/DHWg-0XV0AATWTO.jpg?w=660&h=440&imflag=true',
@@ -103,6 +110,37 @@ class _ProductState extends State<Product> {
                             height: 130,
                             width: 130,
                           ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: <Widget>[
+                              SizedBox(height: 5,),
+                              Container(
+                                width: 180,
+                                child: Text(
+                                  "3-40 HP Single  and two-Stage Industrial Piston Compressors",
+                                  style: TextStyle(fontSize: 14,
+                                  color: Colors.grey),
+                                  overflow: TextOverflow.ellipsis,
+                                  textAlign: TextAlign.center,
+                                  maxLines: 5,
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(top:10.0,bottom: 10),
+                                child: Text('Price :'+"\u20B9" +'50000',style: TextStyle(fontWeight: FontWeight.w600,fontSize: 17,color: Colors.green),),
+                              ),
+
+
+                            ],
+                          )
+                        ],
+                      ),
+                      Divider(
+                        color: Colors.grey,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
                           Container(
                             padding: EdgeInsets.only(top: 7, left: 7),
                             child: RaisedButton(
@@ -171,37 +209,22 @@ class _ProductState extends State<Product> {
                                   color: Colors.white,
                                   fontWeight: FontWeight.w600),),
                             ),
-                          )
-                        ],
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: <Widget>[
-                          Text('Compressor',
-                            style: TextStyle(fontWeight: FontWeight.w600),),
-                          Container(
-                            width: 180,
-                            child: Text(
-                              "3-40 HP Single  and two-Stage Industrial Piston Compressors",
-                              style: TextStyle(fontSize: 14),
-                              overflow: TextOverflow.ellipsis,
-                              textAlign: TextAlign.center,
-                              maxLines: 5,
-                            ),
                           ),
                           Container(
-                            padding: EdgeInsets.only(top: 7, left: 7),
+                            padding: EdgeInsets.only( left: 7),
                             child: RaisedButton(
                               onPressed: _watch,
                               color: Colors.red,
-                              child: Text('Buy Item', style: TextStyle(
+                              child: Text('Add to Cart', style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.w600),),
                             ),
                           )
+
                         ],
                       )
                     ],
+
                   ),
                 ),
               ),
@@ -223,47 +246,4 @@ class _ProductState extends State<Product> {
   void _watch(){}
 
 
-  /*void _showDialog() {
-    // flutter defined function
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        // return object of type Dialog
-        return AlertDialog(
-          title: new Text("Filters"),
-          content: new DropdownButton<String>(
-            value: dropdownValue,
-            onChanged: (String newValue) {
-              setState(() {
-                dropdownValue = newValue;
-              });
-            },
-            items: <String>['One', 'Two', 'Free', 'Four']
-                .map<DropdownMenuItem<String>>((String value) {
-              return DropdownMenuItem<String>(
-                value: value,
-                child: Text(value),
-              );
-            })
-                .toList(),
-          ),
-          actions: <Widget>[
-            // usually buttons at the bottom of the dialog
-            new FlatButton(
-              child: new Text("Close"),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-
-            ),
-        new FlatButton(
-        child: new Text("Apply"),
-        onPressed: () {
-        Navigator.of(context).pop();
-        },)
-          ],
-        );
-      },
-    );
-  }*/
 }
