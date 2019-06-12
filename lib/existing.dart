@@ -85,7 +85,7 @@ class _ExistingState extends State<Existing> {
                     Container(
                       padding: EdgeInsets.only(left: 20, right: 20, top: 10),
                       child: TextFormField(
-                        keyboardType: TextInputType.emailAddress,
+                        keyboardType: TextInputType.number,
                         decoration: InputDecoration(
                             border:  OutlineInputBorder(
                               borderRadius:  BorderRadius.circular(25.0),
@@ -114,7 +114,7 @@ class _ExistingState extends State<Existing> {
                     Container(
                       padding: EdgeInsets.only(left: 20, right: 20, top: 10),
                       child: TextFormField(
-                        keyboardType: TextInputType.text,
+                        keyboardType: TextInputType.number,
                         decoration: InputDecoration(
                             border:  OutlineInputBorder(
                               borderRadius:  BorderRadius.circular(25.0),
@@ -143,10 +143,7 @@ class _ExistingState extends State<Existing> {
                           onPressed: () {
                             if (_formKey.currentState.validate()) {
                               // If the form is valid, we want to show a Snackbar
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => SideBar()),
-                              );
+                              runApp(SideBar());
                             }
                           },
 

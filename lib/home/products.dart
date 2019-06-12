@@ -33,7 +33,13 @@ class _ProductState extends State<Product> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: Text('PRODUCTS',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.red,fontSize: 20,letterSpacing: 1.8),),
+        elevation: 0,
 
+      ),
       body: SingleChildScrollView(
        //  scrollDirection: Axis.horizontal,
         child: Column(
@@ -125,8 +131,41 @@ class _ProductState extends State<Product> {
                                   maxLines: 5,
                                 ),
                               ),
+
+                               RaisedButton(onPressed: (){
+                                return showDialog(
+                                context: context,
+
+                                builder: (context) {
+
+                                return AlertDialog(
+                                  content:  Container(
+                                    height: 150,
+                                    width: 150,
+                                    child: CachedNetworkImage(imageUrl: 'https://image.shutterstock.com/image-vector/seamless-barcode-vector-pattern-thin-260nw-641688019.jpg',fit: BoxFit.contain,),
+                                  ),
+                                );
+
+
+                                  },
+                                  );
+
+                                  },
+                                  color: Colors.white,
+                                  elevation: 0,
+                                    textColor: Colors.black54,
+                                  child:Row(
+                                  children: <Widget>[
+
+                                    Text('Bar Code'),
+                                    Icon(Icons.arrow_forward_ios)
+                                      ],
+                                ),
+                                  ),
+
+
                               Padding(
-                                padding: const EdgeInsets.only(top:10.0,bottom: 10),
+                                padding: const EdgeInsets.only(bottom: 10),
                                 child: Text('Price :'+"\u20B9" +'50000',style: TextStyle(fontWeight: FontWeight.w600,fontSize: 17,color: Colors.green),),
                               ),
 

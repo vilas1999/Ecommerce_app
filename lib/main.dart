@@ -160,7 +160,7 @@ String vaildatepass1(String value){
                       context: context,
 
                       builder: (context) {
-                        if( password.text=='1' && number.text=='1') {
+                        if( password.text=='abcd' && number.text=='1234') {
                            // changeState();
 
                             return Choose();

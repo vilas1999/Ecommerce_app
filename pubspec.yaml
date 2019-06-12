@@ -28,6 +28,7 @@ dependencies:
   shared_preferences: ^0.5.3+1
   video_player:
   smooth_star_rating: 1.0.3
+  url_launcher:
 
 dev_dependencies:
   flutter_test:

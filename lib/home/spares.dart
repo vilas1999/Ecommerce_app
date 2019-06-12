@@ -41,6 +41,13 @@ class _SparesState extends State<Spares> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: Text('SPARE PARTS',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.red,fontSize: 20,letterSpacing: 1.8),),
+        elevation: 0,
+
+      ),
       body: SingleChildScrollView(
       //  scrollDirection: Axis.horizontal,
         child: Column(
@@ -57,16 +64,20 @@ class _SparesState extends State<Spares> {
                     height: 35,
                     width: 170,
                     child: TextFormField(
+                      
                       keyboardType: TextInputType.text,
                       obscureText: false,
                       //style: style,
                       decoration: InputDecoration(
                           hintText: 'Search Spares',
+
+                          prefixIcon: Icon(Icons.search),
                           contentPadding: EdgeInsets.fromLTRB(
                               15.0, 5.0, 0.0, 5.0),
                           border:
                           OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15.0))),
+                              borderRadius: BorderRadius.circular(15.0))
+                      ),
                     ),
                   ),
                   Container(
@@ -186,6 +197,38 @@ class _SparesState extends State<Spares> {
                             child: Text('SimpleAir Piping',style: TextStyle(fontWeight: FontWeight.w600,fontSize: 18),),
                           ),
                           Text('Price:'+"\u20B9" +'20000',style: TextStyle(fontSize: 16),),
+
+                          RaisedButton(onPressed: (){
+                            return showDialog(
+                              context: context,
+
+                              builder: (context) {
+
+                                return AlertDialog(
+                                  content:  Container(
+                                    height: 150,
+                                    width: 150,
+                                    child: CachedNetworkImage(imageUrl: 'https://image.shutterstock.com/image-vector/seamless-barcode-vector-pattern-thin-260nw-641688019.jpg',fit: BoxFit.contain,),
+                                  ),
+                                );
+
+
+                              },
+                            );
+
+                          },
+                            color: Colors.white,
+                            elevation: 0,
+                            textColor: Colors.black54,
+                            child:Row(
+                              children: <Widget>[
+
+                                Text('Bar Code'),
+                                Icon(Icons.arrow_forward_ios)
+                              ],
+                            ),
+                          ),
+
                           Container(
 
                             padding: EdgeInsets.only(top:7,left: 7),

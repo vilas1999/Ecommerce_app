@@ -41,6 +41,8 @@ class SideBarPage extends StatefulWidget {
 
   final String title;
 
+
+
   @override
   _SideBarPageState createState() => _SideBarPageState();
 
@@ -59,8 +61,9 @@ class SideBarPage extends StatefulWidget {
 
 class _SideBarPageState extends State<SideBarPage> {
 
-  int _selectedDrawerIndex = 0;
+  int _selectedDrawerIndex = 3;
   _getDrawerItemWidget(int pos) {
+
     switch (pos) {
       case 0:
         return new Home();
@@ -83,13 +86,16 @@ class _SideBarPageState extends State<SideBarPage> {
   }
 
   _onSelectItem(int index) {
-    setState(() => _selectedDrawerIndex = index);
+    setState(() => _selectedDrawerIndex = index
+
+    );
     Navigator.of(context).pop(); // close the drawer
   }
 
 
 
   Widget build(BuildContext context) {
+
 
 
     var drawerOptions = <Widget>[];
@@ -101,7 +107,8 @@ class _SideBarPageState extends State<SideBarPage> {
               new ListTile(
                 title: new Text(d.title,style: TextStyle(fontSize: 16,fontWeight: FontWeight.w500),),
                 selected: i == _selectedDrawerIndex,
-                onTap: () => _onSelectItem(i),
+                onTap: () {
+                  _onSelectItem(i);},
               ),
               Divider(
                 color: Colors.grey,
@@ -111,19 +118,11 @@ class _SideBarPageState extends State<SideBarPage> {
       );
     }
 
-
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
         bottomOpacity: 0.5,
-        title:Row(
-          children: <Widget>[Text('ELGI'),
-            SizedBox(width:20),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: CachedNetworkImage(imageUrl: 'https://www.thephotoargus.com/wp-content/uploads/2018/10/prettyflowers18.jpg',fit: BoxFit.contain,),
-            )],
-        ),
+        title:Row(children: <Widget>[Text('ELGI'),],),
         actions: <Widget>[
           IconButton(icon: Icon(Icons.shopping_cart,size: 30,), onPressed:(){
             Navigator.push(context,
@@ -167,4 +166,5 @@ class _SideBarPageState extends State<SideBarPage> {
       body: _getDrawerItemWidget(_selectedDrawerIndex),
     );
   }
+
 }

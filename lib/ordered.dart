@@ -203,7 +203,7 @@ class _MyDialogState extends State<MyDialog> {
                         SizedBox(height: 7,),
                         Row(
                           children: <Widget>[
-                            Icon(Icons.done,color: Colors.green,size: 30,),
+                            Icon(Icons.done_all,color: Colors.green,size: 30,),
                             SizedBox(width: 20,),
                             Text('Approved')
                           ],
@@ -211,7 +211,7 @@ class _MyDialogState extends State<MyDialog> {
                         SizedBox(height: 7,),
                         Row(
                           children: <Widget>[
-                            Icon(Icons.done,color: Colors.green,size: 30,),
+                            Icon(Icons.done_all,color: Colors.green,size: 30,),
                             SizedBox(width: 10,),
                             Text('Processing')
                           ],
@@ -219,7 +219,7 @@ class _MyDialogState extends State<MyDialog> {
                         SizedBox(height: 7,),
                         Row(
                           children: <Widget>[
-                            Icon(Icons.done,color: Colors.grey,size: 30,),
+                            Icon(Icons.done_all,color: Colors.grey,size: 30,),
                             SizedBox(width: 25,),
                             Text('Delivery')
                           ],
@@ -227,7 +227,7 @@ class _MyDialogState extends State<MyDialog> {
                         SizedBox(height: 7,),
                         Row(
                           children: <Widget>[
-                            Icon(Icons.done,color: Colors.grey,size: 30,),
+                            Icon(Icons.done_all,color: Colors.grey,size: 30,),
                             SizedBox(width: 29,),
                             Text('Service')
                             
@@ -246,7 +246,7 @@ class _MyDialogState extends State<MyDialog> {
                           width: 150,
                           child: CachedNetworkImage(imageUrl: 'https://image.shutterstock.com/image-vector/seamless-barcode-vector-pattern-thin-260nw-641688019.jpg',fit: BoxFit.contain,),
                         ),
-                       
+
                       ],
                     ),
                   ],

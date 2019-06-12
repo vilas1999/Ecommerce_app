@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'state.dart';
+import 'main.dart';
 
 class Register extends StatefulWidget {
 
@@ -253,7 +254,7 @@ class _RegisterState extends State<Register> {
                             if (_formKey.currentState.validate()) {
                               // If the form is valid, we want to show a Snackbar
                               Navigator.of(context).pop();
-                              main();
+                              runApp(MyApp());
                             }
                           },
 
