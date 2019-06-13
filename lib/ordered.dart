@@ -11,6 +11,7 @@ class Ordered extends StatefulWidget {
 
 class _OrderedState extends State<Ordered> {
 
+  var location='a';
 
   @override
   Widget build(BuildContext context) {
@@ -142,11 +143,14 @@ class _OrderedState extends State<Ordered> {
 class MyDialog extends StatefulWidget {
   @override
 
+
   _MyDialogState createState() => new _MyDialogState();
 }
 
 class _MyDialogState extends State<MyDialog> {
   var rating=0.0;
+
+
   @override
   Widget build(BuildContext context) {
     return AlertDialog(

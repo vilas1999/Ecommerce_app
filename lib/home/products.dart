@@ -5,6 +5,13 @@ import 'filters.dart';
 class Product extends StatefulWidget {
 
 
+  final items=['Compressor','Compressor','Compressor','Compressor'];
+  final image=['https://images.financialexpress.com/2017/10/DHWg-0XV0AATWTO.jpg?w=660&h=440&imflag=true','https://images.financialexpress.com/2017/10/DHWg-0XV0AATWTO.jpg?w=660&h=440&imflag=true','https://images.financialexpress.com/2017/10/DHWg-0XV0AATWTO.jpg?w=660&h=440&imflag=true','https://www.ingersollrandproducts.com/content/dam/ir-products/Compressors/products/simplair-compressed-air-piping-us.jpg/jcr:content/renditions/cq5dam.thumbnail.450.380.png'];
+  final price=['700000','20000','700000','20000'];
+  final barcode=['https://image.shutterstock.com/image-vector/seamless-barcode-vector-pattern-thin-260nw-641688019.jpg','https://image.shutterstock.com/image-vector/seamless-barcode-vector-pattern-thin-260nw-641688019.jpg','https://image.shutterstock.com/image-vector/seamless-barcode-vector-pattern-thin-260nw-641688019.jpg','https://image.shutterstock.com/image-vector/seamless-barcode-vector-pattern-thin-260nw-641688019.jpg'];
+  final description=["3-40 HP Single  and two-Stage Industrial Piston Compressors","3-40 HP Single  and two-Stage Industrial Piston Compressors","3-40 HP Single  and two-Stage Industrial Piston Compressors","3-40 HP Single  and two-Stage Industrial Piston Compressors"];
+
+
 
   @override
   _ProductState createState() => _ProductState();
@@ -32,75 +39,28 @@ class _ProductState extends State<Product> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        centerTitle: true,
-        title: Text('PRODUCTS',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.red,fontSize: 20,letterSpacing: 1.8),),
-        elevation: 0,
 
-      ),
-      body: SingleChildScrollView(
-       //  scrollDirection: Axis.horizontal,
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(left: 10, right: 10, top: 20),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: <Widget>[
-                  Container(
-                    height: 35,
-                    width: 170,
-                    child: TextFormField(
-                      keyboardType: TextInputType.text,
-                      obscureText: false,
-                      //style: style,
-                      decoration: InputDecoration(
-                          hintText: 'Search Products',
-                          contentPadding: EdgeInsets.fromLTRB(
-                              15.0, 5.0, 0.0, 5.0),
-                          border:
-                          OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15.0))),
-                    ),
-                  ),
-                  Container(
-                    height: 35,
-                    width: 100,
-                    child: RaisedButton(
-                        onPressed:  () {
-                          Navigator.push(context,MaterialPageRoute(builder: (context)=>Filter()));
-                        },
-                      color: Colors.white30,
-                      textColor: Colors.black,
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: <Widget>[
-                          Text('Filters'),
-                          Icon(Icons.filter_list)
-                        ],
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(6.0),
-              child: Card(
+    var options=<Widget>[];
+    for(var i=0;i<widget.items.length;i++) {
+      var d = widget.items[i];
+      var img = widget.image[i];
+      var p = widget.price[i];
+      var bar = widget.barcode[i];
+      var desc=widget.description[i];
+      options.add(
+          Column(
+            children: <Widget>[
+              Card(
                 elevation: 10,
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 8.0, right: 8),
+                  padding: const EdgeInsets.only(left: 8.0, right: 8,bottom: 3),
                   child: Column(
                     children: <Widget>[
                       SizedBox(
-                    height: 10,
-                  ),
+                        height: 10,
+                      ),
                       Center(
-                        child: Text('Compressor'.toUpperCase(),
+                        child: Text(d.toUpperCase(),
                           style: TextStyle(fontWeight: FontWeight.w600,fontSize: 18),),
 
                       ),
@@ -110,7 +70,7 @@ class _ProductState extends State<Product> {
                           //SizedBox(width: 10,),
                           SizedBox(
                             child: CachedNetworkImage(
-                              imageUrl: 'https://images.financialexpress.com/2017/10/DHWg-0XV0AATWTO.jpg?w=660&h=440&imflag=true',
+                              imageUrl:img,
                               repeat: ImageRepeat.noRepeat,
                               fit: BoxFit.contain,),
                             height: 130,
@@ -123,50 +83,50 @@ class _ProductState extends State<Product> {
                               Container(
                                 width: 180,
                                 child: Text(
-                                  "3-40 HP Single  and two-Stage Industrial Piston Compressors",
+                                  desc,
                                   style: TextStyle(fontSize: 14,
-                                  color: Colors.grey),
+                                      color: Colors.grey),
                                   overflow: TextOverflow.ellipsis,
                                   textAlign: TextAlign.center,
                                   maxLines: 5,
                                 ),
                               ),
 
-                               RaisedButton(onPressed: (){
+                              RaisedButton(onPressed: (){
                                 return showDialog(
-                                context: context,
+                                  context: context,
 
-                                builder: (context) {
+                                  builder: (context) {
 
-                                return AlertDialog(
-                                  content:  Container(
-                                    height: 150,
-                                    width: 150,
-                                    child: CachedNetworkImage(imageUrl: 'https://image.shutterstock.com/image-vector/seamless-barcode-vector-pattern-thin-260nw-641688019.jpg',fit: BoxFit.contain,),
-                                  ),
+                                    return AlertDialog(
+                                      content:  Container(
+                                        height: 150,
+                                        width: 150,
+                                        child: CachedNetworkImage(imageUrl:bar,fit: BoxFit.contain,),
+                                      ),
+                                    );
+
+
+                                  },
                                 );
 
-
-                                  },
-                                  );
-
-                                  },
-                                  color: Colors.white,
-                                  elevation: 0,
-                                    textColor: Colors.black54,
-                                  child:Row(
+                              },
+                                color: Colors.white,
+                                elevation: 0,
+                                textColor: Colors.black54,
+                                child:Row(
                                   children: <Widget>[
 
                                     Text('Bar Code'),
                                     Icon(Icons.arrow_forward_ios)
-                                      ],
+                                  ],
                                 ),
-                                  ),
+                              ),
 
 
                               Padding(
                                 padding: const EdgeInsets.only(bottom: 10),
-                                child: Text('Price :'+"\u20B9" +'50000',style: TextStyle(fontWeight: FontWeight.w600,fontSize: 17,color: Colors.green),),
+                                child: Text('Price :'+"\u20B9" +p.toString(),style: TextStyle(fontWeight: FontWeight.w600,fontSize: 17,color: Colors.green),),
                               ),
 
 
@@ -265,6 +225,82 @@ class _ProductState extends State<Product> {
                     ],
 
                   ),
+                ),
+              ),
+              SizedBox(
+                height: 5,
+              )
+            ],
+          ),
+
+      );
+    }
+
+
+      return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: Text('PRODUCTS',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.red,fontSize: 20,letterSpacing: 1.8),),
+        elevation: 0,
+
+      ),
+      body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
+       //  scrollDirection: Axis.horizontal,
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(left: 7, right: 7, top: 20),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  Container(
+                    height: 35,
+                    width: 170,
+                    child: TextFormField(
+                      keyboardType: TextInputType.text,
+                      obscureText: false,
+                      //style: style,
+                      decoration: InputDecoration(
+                          hintText: 'Search Products',
+                          contentPadding: EdgeInsets.fromLTRB(
+                              15.0, 5.0, 0.0, 5.0),
+                          border:
+                          OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15.0))),
+                    ),
+                  ),
+                  Container(
+                    height: 35,
+                    width: 100,
+                    child: RaisedButton(
+                        onPressed:  () {
+                          Navigator.push(context,MaterialPageRoute(builder: (context)=>Filter()));
+                        },
+                      color: Colors.white30,
+                      textColor: Colors.black,
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: <Widget>[
+                          Text('Filters'),
+                          Icon(Icons.filter_list)
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(6.0),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 0, right: 8),
+                child: Column(
+                  children: options,
+
                 ),
               ),
             ),
