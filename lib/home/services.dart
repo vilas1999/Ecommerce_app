@@ -11,7 +11,7 @@ class Services extends StatefulWidget {
 }
 
 class _ServicesState extends State<Services> {
-
+ var a=null;
   void _ontap(int index){
     if(index==0)
       Navigator.push(context, MaterialPageRoute(builder: (context)=>Request() ));
