@@ -11,8 +11,7 @@ class Ordered extends StatefulWidget {
 
 class _OrderedState extends State<Ordered> {
 
-  var location='a';
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +44,7 @@ class _OrderedState extends State<Ordered> {
                             fit: BoxFit.contain,),
                           height: 130,
                           width: 130,
-                        ),
+                            ),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: <Widget>[
@@ -149,8 +148,6 @@ class MyDialog extends StatefulWidget {
 
 class _MyDialogState extends State<MyDialog> {
   var rating=0.0;
-
-
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
